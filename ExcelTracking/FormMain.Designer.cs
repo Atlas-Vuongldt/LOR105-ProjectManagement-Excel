@@ -42,6 +42,7 @@ namespace ExcelTracking
             this.button_Transfer_Drawing_Submit_1st = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Submit_Final = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button_Transfer_Working_Receive = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Feedback_Final = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Feedback_1st = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@ namespace ExcelTracking
             this.button_ts_Select_Master = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button_Output_Form = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -234,6 +235,17 @@ namespace ExcelTracking
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DRAWING";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(262, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(587, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Please note to only transfer data with the \'Update Status\' column marked as OK";
             // 
             // button_Transfer_Working_Receive
             // 
@@ -564,6 +576,7 @@ namespace ExcelTracking
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.button_Output_Form);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
@@ -575,7 +588,7 @@ namespace ExcelTracking
             // button_Output_Form
             // 
             this.button_Output_Form.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Output_Form.Location = new System.Drawing.Point(8, 57);
+            this.button_Output_Form.Location = new System.Drawing.Point(287, 54);
             this.button_Output_Form.Name = "button_Output_Form";
             this.button_Output_Form.Size = new System.Drawing.Size(287, 44);
             this.button_Output_Form.TabIndex = 4;
@@ -583,16 +596,17 @@ namespace ExcelTracking
             this.button_Output_Form.UseVisualStyleBackColor = true;
             this.button_Output_Form.Click += new System.EventHandler(this.button_Output_Form_Click);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(262, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(587, 17);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Please note to only transfer data with the \'Update Status\' column marked as OK";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(147, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(577, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Data will be transferred from Sheet 1 (Template Input Data) to Sheet 3 (OutputFro" +
+    "m)";
             // 
             // FormMain
             // 
@@ -617,6 +631,7 @@ namespace ExcelTracking
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -664,5 +679,6 @@ namespace ExcelTracking
         private System.Windows.Forms.Button button_Output_Form;
         private System.Windows.Forms.Button button_Transfer_Working_Receive;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

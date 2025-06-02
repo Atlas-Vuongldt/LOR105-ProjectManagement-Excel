@@ -3256,8 +3256,25 @@ namespace ExcelTracking
                             }
                         }
 
-                        // Định dạng Border
+                        // Định dạng Border cho toàn bộ vùng có dữ liệu
+                        if (outputRow > outputData_StartRow)
+                        {
+                            var dataRange = wsInput_OutputData.Cells[outputData_StartRow - 1, outputData_No_Col,
+                                                                   outputRow - 1, outputData_Status_Col];
 
+                            dataRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            dataRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            dataRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            dataRange.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+
+                            foreach (var cell in dataRange)
+                            {
+                                cell.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                                cell.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                                cell.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                                cell.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                            }
+                        }
 
                         wsInput_OutputData.Select();
                         packageInput.Save();

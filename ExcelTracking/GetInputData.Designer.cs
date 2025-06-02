@@ -42,6 +42,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button_Output_Form = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -155,6 +157,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Bisque;
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.IsInputAsPTANo);
             this.tabPage1.Controls.Add(this.button_GetFile_Select_Master);
             this.tabPage1.Controls.Add(this.IsInputAsModel);
@@ -174,6 +177,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Bisque;
+            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.button_Output_Form);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
@@ -185,13 +189,37 @@
             // button_Output_Form
             // 
             this.button_Output_Form.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Output_Form.Location = new System.Drawing.Point(30, 41);
+            this.button_Output_Form.Location = new System.Drawing.Point(307, 37);
             this.button_Output_Form.Name = "button_Output_Form";
             this.button_Output_Form.Size = new System.Drawing.Size(287, 44);
             this.button_Output_Form.TabIndex = 6;
             this.button_Output_Form.Text = "Transfer data from InputData to Output form";
             this.button_Output_Form.UseVisualStyleBackColor = true;
             this.button_Output_Form.Click += new System.EventHandler(this.button_Output_Form_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(168, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(577, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Data will be transferred from Sheet 1 (Template Input Data) to Sheet 3 (OutputFro" +
+    "m)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(94, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(700, 16);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "The data obtained from the files inside the Input folder will be inserted into Sh" +
+    "eet 2 (GetFilesInFolder)";
             // 
             // GetInputData
             // 
@@ -209,6 +237,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +257,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button_Output_Form;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
