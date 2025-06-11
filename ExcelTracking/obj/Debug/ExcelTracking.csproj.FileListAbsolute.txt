@@ -153,5 +153,6 @@ D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\
 D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\bin\Debug\Excel Tracking.pdb
 D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\bin\Debug\Ookii.Dialogs.Wpf.xml
 D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\obj\Debug\ExcelTra.AE9AB7ED.Up2Date
+D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\bin\Debug\Newtonsoft.Json.xml
 D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\obj\Debug\ExcelTracking.csproj.Fody.CopyLocal.cache
 D:\OneDrive\07-Data_Public\01-Project Support\LOR105\Excel Tracking\00-Solution\Excel Tracking\ExcelTracking\obj\Debug\ExcelTracking.csproj.Fody.RuntimeCopyLocal.cache

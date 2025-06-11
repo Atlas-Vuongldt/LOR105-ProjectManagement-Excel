@@ -62,6 +62,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ookii.Dialogs.Wpf">
       <HintPath>Resources\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
     </Reference>
@@ -96,7 +99,9 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramFunction\SettingsManager.cs" />
     <Compile Include="ProgramFunction\ExcelDataManager.cs" />
+    <Compile Include="ProgramFunction\CadInfoExtractor.cs" />
     <Compile Include="ProgramFunction\MainFunction.cs" />
     <Compile Include="ProgramFunction\bin\TrackingInputData_backup2.cs" />
     <Compile Include="ProgramFunction\bin\TrackingInputData_backup1.cs" />

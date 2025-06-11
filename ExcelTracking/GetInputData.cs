@@ -6,9 +6,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SettingsManager;
+using System.IO;
 #endregion
 
 namespace ExcelTracking
@@ -18,6 +21,7 @@ namespace ExcelTracking
         public GetInputData()
         {
             InitializeComponent();
+            LoadFormSettings();
         }
 
         //===================================================================================
@@ -74,6 +78,8 @@ namespace ExcelTracking
 
         private async void button_GetFileNameFromInputFolder_Click(object sender, EventArgs e)
         {
+            SaveSettings();
+
             DisableButton();
 
             TrackingInputData.isInputAsPTANo = IsInputAsPTANo.Checked;
@@ -110,6 +116,61 @@ namespace ExcelTracking
             IsInputAsModel.Enabled = true;
         }
 
-        
+
+        //==============================================================
+        private FormSettings_GetInputData settings;
+        // 📂 Load settings
+        private void LoadFormSettings()
+        {
+            settings = SettingsManagerConfig.LoadSettings_GetInputData();
+
+            // Apply vào textboxes (sẽ trống nếu lần đầu)
+            txtFilePath_GetFile_InputDataFolder.Text = settings.InputFolder;
+            txtFilePath_GetFile_OutputDataFolder.Text = settings.OutputFolder;
+            txtFilePath_GetFile_MasterFile.Text = settings.MasterFile;
+        }
+        // 💾 Save settings
+        private void SaveSettings()
+        {
+            settings.InputFolder = txtFilePath_GetFile_InputDataFolder.Text;
+            settings.OutputFolder = txtFilePath_GetFile_OutputDataFolder.Text;
+            settings.MasterFile = txtFilePath_GetFile_MasterFile.Text;
+
+            SettingsManagerConfig.SaveSettings_GetInputData(settings);
+        }
+
+        private void Open_CadConfigFolder_Click(object sender, EventArgs e)
+        {
+            string folderPath = CadInfoExtractor.settingFolder;
+            try
+            {
+                if (string.IsNullOrEmpty(folderPath))
+                {
+                    MessageBox.Show("❌ Folder path is empty!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!Directory.Exists(folderPath))
+                {
+                    MessageBox.Show($"❌ Folder not found:\n{folderPath}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                System.Diagnostics.Process.Start("explorer.exe", folderPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"❌ Error opening folder:\n{ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+
     }
 }

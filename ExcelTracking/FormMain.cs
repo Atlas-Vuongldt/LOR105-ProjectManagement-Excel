@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 using ExcelTracking;
 using Ookii.Dialogs.Wpf;
+using SettingsManager;
 #endregion
 
 namespace ExcelTracking
@@ -21,6 +22,7 @@ namespace ExcelTracking
         public FormMain()
         {
             InitializeComponent();
+            LoadFormSettings();
         }
         
         //===================================================================================
@@ -37,6 +39,7 @@ namespace ExcelTracking
                     string filePath = openFileDialog.FileName;
                     txtFilePath_MasterFile.Text = filePath;
                     TrackingInputData.txtFilePath_Master = filePath;
+                    SaveSettings();
                 }
             }
         }
@@ -53,6 +56,7 @@ namespace ExcelTracking
                     string filePath = openFileDialog.FileName;
                     txtFilePath_InputDataFile.Text = filePath;
                     TrackingInputData.txtFilePath_InputData = filePath;
+                    SaveSettings();
                 }
             }
         }
@@ -69,6 +73,7 @@ namespace ExcelTracking
                     string filePath = openFileDialog.FileName;
                     txtFilePath_InputRecordMasterFile.Text = filePath;
                     TrackingInputData.txtFilePath_InputRecordMaster = filePath;
+                    SaveSettings();
                 }
             }
         }
@@ -398,6 +403,30 @@ namespace ExcelTracking
             button_ts_Transfer_TS_Drawing.Enabled = true;
             button_ts_Transfer_TS_Model.Enabled = true;
 
+        }
+
+
+
+        //==============================================================
+        private FormSettings_MainTracking settings;
+        // 📂 Load settings
+        private void LoadFormSettings()
+        {
+            settings = SettingsManagerConfig.LoadSettings_MainTracking();
+
+            // Apply vào textboxes (sẽ trống nếu lần đầu)
+            txtFilePath_MasterFile.Text = settings.MasterFile;
+            txtFilePath_InputDataFile.Text = settings.InputDataFile;
+            txtFilePath_InputRecordMasterFile.Text = settings.RecordMasterFile;
+        }
+        // 💾 Save settings
+        private void SaveSettings()
+        {
+            settings.MasterFile = txtFilePath_MasterFile.Text;
+            settings.InputDataFile = txtFilePath_InputDataFile.Text;
+            settings.RecordMasterFile = txtFilePath_InputRecordMasterFile.Text;
+
+            SettingsManagerConfig.SaveSettings_MainTracking(settings);
         }
 
     }

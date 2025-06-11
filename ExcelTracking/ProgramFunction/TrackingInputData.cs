@@ -2999,7 +2999,7 @@ namespace ExcelTracking
                         {
                             if (i < files.Length)
                             {
-                                GetCadInfo(files[i],
+                                CadInfoExtractor.GetCadInfo(files[i],
                                     out string maxRevValue, out string maxRevDate, out string maxRevAmendment, out string status_CheckRev_InCAD);
 
                                 if (!string.IsNullOrEmpty(maxRevValue))
@@ -3085,7 +3085,7 @@ namespace ExcelTracking
                         // Đưa các giá trị Rev - Purpose - Datetime từ CAD file vào inputdata
                         if (isGetCADInfo)
                         {
-                            GetCadInfo(files[i],
+                            CadInfoExtractor.GetCadInfo(files[i],
                                     out string maxRevValue, out string maxRevDate, out string maxRevAmendment, out string status_CheckRev_InCAD);
 
                             if (!string.IsNullOrEmpty(maxRevValue))
