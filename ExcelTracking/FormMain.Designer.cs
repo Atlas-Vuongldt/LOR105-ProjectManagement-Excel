@@ -70,8 +70,8 @@ namespace ExcelTracking
             this.button_ts_Select_InputTS = new System.Windows.Forms.Button();
             this.button_ts_Select_Master = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button_Output_Form = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button_Output_Form = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -220,6 +220,8 @@ namespace ExcelTracking
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.button_Transfer_Drawing_RFI_Final);
+            this.groupBox1.Controls.Add(this.button_Transfer_Drawing_RFI_1st);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button_Transfer_Working_Receive);
             this.groupBox1.Controls.Add(this.button_Transfer_Drawing_Feedback_Final);
@@ -291,7 +293,7 @@ namespace ExcelTracking
             this.button_Transfer_Drawing_RFI_Final.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button_Transfer_Drawing_RFI_Final.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Transfer_Drawing_RFI_Final.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_Transfer_Drawing_RFI_Final.Location = new System.Drawing.Point(671, 256);
+            this.button_Transfer_Drawing_RFI_Final.Location = new System.Drawing.Point(665, 113);
             this.button_Transfer_Drawing_RFI_Final.Name = "button_Transfer_Drawing_RFI_Final";
             this.button_Transfer_Drawing_RFI_Final.Size = new System.Drawing.Size(210, 40);
             this.button_Transfer_Drawing_RFI_Final.TabIndex = 20;
@@ -305,13 +307,12 @@ namespace ExcelTracking
             this.button_Transfer_Drawing_RFI_1st.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button_Transfer_Drawing_RFI_1st.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Transfer_Drawing_RFI_1st.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_Transfer_Drawing_RFI_1st.Location = new System.Drawing.Point(671, 239);
+            this.button_Transfer_Drawing_RFI_1st.Location = new System.Drawing.Point(665, 65);
             this.button_Transfer_Drawing_RFI_1st.Name = "button_Transfer_Drawing_RFI_1st";
             this.button_Transfer_Drawing_RFI_1st.Size = new System.Drawing.Size(210, 40);
             this.button_Transfer_Drawing_RFI_1st.TabIndex = 19;
-            this.button_Transfer_Drawing_RFI_1st.Text = "Transfer Drawing_RFI_1st to Master";
+            this.button_Transfer_Drawing_RFI_1st.Text = "Tracking Drawing_RFI_1st to Master";
             this.button_Transfer_Drawing_RFI_1st.UseVisualStyleBackColor = false;
-            this.button_Transfer_Drawing_RFI_1st.Visible = false;
             this.button_Transfer_Drawing_RFI_1st.Click += new System.EventHandler(this.button_Transfer_Drawing_RFI_1st_Click);
             // 
             // groupBox2
@@ -393,9 +394,7 @@ namespace ExcelTracking
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Bisque;
-            this.tabPage1.Controls.Add(this.button_Transfer_Drawing_RFI_Final);
             this.tabPage1.Controls.Add(this.button_Check_InputData_Model);
-            this.tabPage1.Controls.Add(this.button_Transfer_Drawing_RFI_1st);
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
             this.tabPage1.Controls.Add(this.labelStatus);
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
@@ -585,17 +584,6 @@ namespace ExcelTracking
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Output Form";
             // 
-            // button_Output_Form
-            // 
-            this.button_Output_Form.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Output_Form.Location = new System.Drawing.Point(287, 54);
-            this.button_Output_Form.Name = "button_Output_Form";
-            this.button_Output_Form.Size = new System.Drawing.Size(287, 44);
-            this.button_Output_Form.TabIndex = 4;
-            this.button_Output_Form.Text = "Transfer data from InputData to Output form";
-            this.button_Output_Form.UseVisualStyleBackColor = true;
-            this.button_Output_Form.Click += new System.EventHandler(this.button_Output_Form_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -607,6 +595,17 @@ namespace ExcelTracking
             this.label2.TabIndex = 8;
             this.label2.Text = "Data will be transferred from Sheet 1 (Template Input Data) to Sheet 3 (OutputFro" +
     "m)";
+            // 
+            // button_Output_Form
+            // 
+            this.button_Output_Form.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_Output_Form.Location = new System.Drawing.Point(287, 54);
+            this.button_Output_Form.Name = "button_Output_Form";
+            this.button_Output_Form.Size = new System.Drawing.Size(287, 44);
+            this.button_Output_Form.TabIndex = 4;
+            this.button_Output_Form.Text = "Transfer data from InputData to Output form";
+            this.button_Output_Form.UseVisualStyleBackColor = true;
+            this.button_Output_Form.Click += new System.EventHandler(this.button_Output_Form_Click);
             // 
             // FormMain
             // 

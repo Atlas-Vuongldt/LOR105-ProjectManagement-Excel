@@ -418,6 +418,11 @@ namespace ExcelTracking
             txtFilePath_MasterFile.Text = settings.MasterFile;
             txtFilePath_InputDataFile.Text = settings.InputDataFile;
             txtFilePath_InputRecordMasterFile.Text = settings.RecordMasterFile;
+            
+            TrackingInputData.txtFilePath_Master = settings.MasterFile;
+            TrackingInputData.txtFilePath_InputData = settings.InputDataFile;
+            TrackingInputData.txtFilePath_InputRecordMaster = settings.RecordMasterFile;
+
         }
         // 💾 Save settings
         private void SaveSettings()

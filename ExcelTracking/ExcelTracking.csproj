@@ -105,6 +105,7 @@
     <Compile Include="ProgramFunction\MainFunction.cs" />
     <Compile Include="ProgramFunction\bin\TrackingInputData_backup2.cs" />
     <Compile Include="ProgramFunction\bin\TrackingInputData_backup1.cs" />
+    <Compile Include="ProgramFunction\RFIMasterProcessor.cs" />
     <Compile Include="ProgramFunction\TrackingInputData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
