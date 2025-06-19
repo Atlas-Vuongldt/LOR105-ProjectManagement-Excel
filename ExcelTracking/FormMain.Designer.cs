@@ -42,12 +42,12 @@ namespace ExcelTracking
             this.button_Transfer_Drawing_Submit_1st = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Submit_Final = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Transfer_Drawing_RFI_Final = new System.Windows.Forms.Button();
+            this.button_Transfer_Drawing_RFI_1st = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button_Transfer_Working_Receive = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Feedback_Final = new System.Windows.Forms.Button();
             this.button_Transfer_Drawing_Feedback_1st = new System.Windows.Forms.Button();
-            this.button_Transfer_Drawing_RFI_Final = new System.Windows.Forms.Button();
-            this.button_Transfer_Drawing_RFI_1st = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_Transfer_Model_Feedback = new System.Windows.Forms.Button();
@@ -238,6 +238,33 @@ namespace ExcelTracking
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DRAWING";
             // 
+            // button_Transfer_Drawing_RFI_Final
+            // 
+            this.button_Transfer_Drawing_RFI_Final.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button_Transfer_Drawing_RFI_Final.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_Transfer_Drawing_RFI_Final.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_Transfer_Drawing_RFI_Final.Location = new System.Drawing.Point(665, 113);
+            this.button_Transfer_Drawing_RFI_Final.Name = "button_Transfer_Drawing_RFI_Final";
+            this.button_Transfer_Drawing_RFI_Final.Size = new System.Drawing.Size(210, 40);
+            this.button_Transfer_Drawing_RFI_Final.TabIndex = 20;
+            this.button_Transfer_Drawing_RFI_Final.Text = "Transfer Drawing_RFI_Final to Master";
+            this.button_Transfer_Drawing_RFI_Final.UseVisualStyleBackColor = false;
+            this.button_Transfer_Drawing_RFI_Final.Visible = false;
+            this.button_Transfer_Drawing_RFI_Final.Click += new System.EventHandler(this.button_Transfer_Drawing_RFI_Final_Click);
+            // 
+            // button_Transfer_Drawing_RFI_1st
+            // 
+            this.button_Transfer_Drawing_RFI_1st.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button_Transfer_Drawing_RFI_1st.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_Transfer_Drawing_RFI_1st.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_Transfer_Drawing_RFI_1st.Location = new System.Drawing.Point(665, 65);
+            this.button_Transfer_Drawing_RFI_1st.Name = "button_Transfer_Drawing_RFI_1st";
+            this.button_Transfer_Drawing_RFI_1st.Size = new System.Drawing.Size(210, 40);
+            this.button_Transfer_Drawing_RFI_1st.TabIndex = 19;
+            this.button_Transfer_Drawing_RFI_1st.Text = "Tracking Drawing_RFI_1st to Master";
+            this.button_Transfer_Drawing_RFI_1st.UseVisualStyleBackColor = false;
+            this.button_Transfer_Drawing_RFI_1st.Click += new System.EventHandler(this.button_Transfer_Drawing_RFI_1st_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -287,33 +314,6 @@ namespace ExcelTracking
             this.button_Transfer_Drawing_Feedback_1st.Text = "Transfer Drawing_Feedback_1st to Master";
             this.button_Transfer_Drawing_Feedback_1st.UseVisualStyleBackColor = false;
             this.button_Transfer_Drawing_Feedback_1st.Click += new System.EventHandler(this.button_Transfer_Drawing_Feedback_1st_Click);
-            // 
-            // button_Transfer_Drawing_RFI_Final
-            // 
-            this.button_Transfer_Drawing_RFI_Final.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button_Transfer_Drawing_RFI_Final.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Transfer_Drawing_RFI_Final.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_Transfer_Drawing_RFI_Final.Location = new System.Drawing.Point(665, 113);
-            this.button_Transfer_Drawing_RFI_Final.Name = "button_Transfer_Drawing_RFI_Final";
-            this.button_Transfer_Drawing_RFI_Final.Size = new System.Drawing.Size(210, 40);
-            this.button_Transfer_Drawing_RFI_Final.TabIndex = 20;
-            this.button_Transfer_Drawing_RFI_Final.Text = "Transfer Drawing_RFI_Final to Master";
-            this.button_Transfer_Drawing_RFI_Final.UseVisualStyleBackColor = false;
-            this.button_Transfer_Drawing_RFI_Final.Visible = false;
-            this.button_Transfer_Drawing_RFI_Final.Click += new System.EventHandler(this.button_Transfer_Drawing_RFI_Final_Click);
-            // 
-            // button_Transfer_Drawing_RFI_1st
-            // 
-            this.button_Transfer_Drawing_RFI_1st.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button_Transfer_Drawing_RFI_1st.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Transfer_Drawing_RFI_1st.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_Transfer_Drawing_RFI_1st.Location = new System.Drawing.Point(665, 65);
-            this.button_Transfer_Drawing_RFI_1st.Name = "button_Transfer_Drawing_RFI_1st";
-            this.button_Transfer_Drawing_RFI_1st.Size = new System.Drawing.Size(210, 40);
-            this.button_Transfer_Drawing_RFI_1st.TabIndex = 19;
-            this.button_Transfer_Drawing_RFI_1st.Text = "Tracking Drawing_RFI_1st to Master";
-            this.button_Transfer_Drawing_RFI_1st.UseVisualStyleBackColor = false;
-            this.button_Transfer_Drawing_RFI_1st.Click += new System.EventHandler(this.button_Transfer_Drawing_RFI_1st_Click);
             // 
             // groupBox2
             // 
@@ -618,7 +618,6 @@ namespace ExcelTracking
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.Text = "Transfer data from Input to Master file";
-            this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

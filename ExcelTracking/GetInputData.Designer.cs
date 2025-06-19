@@ -40,11 +40,11 @@
             this.txtFilePath_GetFile_OutputDataFolder = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Open_CadConfigFolder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.button_Output_Form = new System.Windows.Forms.Button();
-            this.Open_CadConfigFolder = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -176,6 +176,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Get Info";
             // 
+            // Open_CadConfigFolder
+            // 
+            this.Open_CadConfigFolder.Location = new System.Drawing.Point(1, 189);
+            this.Open_CadConfigFolder.Name = "Open_CadConfigFolder";
+            this.Open_CadConfigFolder.Size = new System.Drawing.Size(157, 23);
+            this.Open_CadConfigFolder.TabIndex = 26;
+            this.Open_CadConfigFolder.Text = "Open CadBlockConfig Folder";
+            this.Open_CadConfigFolder.UseVisualStyleBackColor = true;
+            this.Open_CadConfigFolder.Click += new System.EventHandler(this.Open_CadConfigFolder_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -223,16 +233,6 @@
             this.button_Output_Form.UseVisualStyleBackColor = true;
             this.button_Output_Form.Click += new System.EventHandler(this.button_Output_Form_Click);
             // 
-            // Open_CadConfigFolder
-            // 
-            this.Open_CadConfigFolder.Location = new System.Drawing.Point(1, 189);
-            this.Open_CadConfigFolder.Name = "Open_CadConfigFolder";
-            this.Open_CadConfigFolder.Size = new System.Drawing.Size(157, 23);
-            this.Open_CadConfigFolder.TabIndex = 26;
-            this.Open_CadConfigFolder.Text = "Open CadBlockConfig Folder";
-            this.Open_CadConfigFolder.UseVisualStyleBackColor = true;
-            this.Open_CadConfigFolder.Click += new System.EventHandler(this.Open_CadConfigFolder_Click);
-            // 
             // GetInputData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,7 +244,6 @@
             this.MinimizeBox = false;
             this.Name = "GetInputData";
             this.Text = "Get Files & Data in Folder";
-            this.TopMost = true;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
