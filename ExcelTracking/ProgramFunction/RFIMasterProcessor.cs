@@ -10,23 +10,22 @@ using ExcelTracking;
 public class RFIMasterProcessor
 {
     #region Column Definitions - Khai báo cột để dễ thay đổi
-
     // === RFI FILE COLUMNS ===
     private const int RFI_REF_NO_COL = 1;           // Cột A - Ref No
     private const int RFI_DOC_REF_COL = 4;          // Cột D - Doc Ref
-    private const int RFI_REFERENCE_DOC_COL = 6;    // Cột F - Reference Document
-    private const int RFI_BRE_ANSWER_COL = 11;      // Cột K - BRE Answer
-    private const int RFI_STATUS_COL = 14;          // Cột N - Status
+    private const int RFI_REFERENCE_DOC_COL = 5;    // Cột E - Reference Document
+    // ❌ REMOVED: private const int RFI_BRE_ANSWER_COL = 6;     // Cột F - BRE Answer
+    private const int RFI_STATUS_COL = 7;           // Cột G - Status
 
     // === MASTER FILE COLUMNS ===
-    private const int MASTER_ALLIANCE_NO_COL = 7;   // Cột G - Alliance No
-    private const int MASTER_REF_NO_LIST_COL = 69;  // Cột BQ - Danh sách Ref No
-    private const int MASTER_BRE_COUNT_COL = 70;    // Cột BR - Count BRE Answer
-    private const int MASTER_OPEN_COUNT_COL = 71;   // Cột BS - Count Open
-    private const int MASTER_CLOSED_COUNT_COL = 72; // Cột BT - Count Closed
-    private const int MASTER_OVERALL_STATUS_COL = 73; // Cột BU - Overall Status
-    private const int MASTER_OPEN_ITEMS_COL = 74;   // Cột BV - Open Items Text
+    private int MASTER_ALLIANCE_NO_COL = MasterExcelData_Drawing.Alliance_Col;              // Cột G - Alliance No
 
+    private int MASTER_REF_NO_LIST_COL = MasterExcelData_Drawing_FirstRFI.NoOfRaise_Col;    // Cột BQ - Danh sách Ref No
+    // ❌ REMOVED: private int MASTER_BRE_COUNT_COL = MasterExcelData_Drawing_FirstRFI.NoOfFeedback_Col;   // Cột BR - Count BRE Answer
+    private int MASTER_OPEN_COUNT_COL = MasterExcelData_Drawing_FirstRFI.NoOpen_Col;        // Cột BS - Count Open
+    private int MASTER_CLOSED_COUNT_COL = MasterExcelData_Drawing_FirstRFI.NoClose_Col;     // Cột BT - Count Closed
+    private int MASTER_OVERALL_STATUS_COL = MasterExcelData_Drawing_FirstRFI.Status_Col;    // Cột BU - Overall Status
+    private int MASTER_OPEN_ITEMS_COL = MasterExcelData_Drawing_FirstRFI.OpenItems_Col;     // Cột BV - Open Items Text
     #endregion
 
     public void ProcessRFIAndMasterFiles(string rfiFilePath, string masterFilePath)
@@ -34,9 +33,11 @@ public class RFIMasterProcessor
         using (var rfiPackage = new ExcelPackage(new FileInfo(rfiFilePath)))
         using (var masterPackage = new ExcelPackage(new FileInfo(masterFilePath)))
         {
-            var rfiWorksheet = rfiPackage.Workbook.Worksheets[1];
-            var masterWorksheet = masterPackage.Workbook.Worksheets[2];
-            masterWorksheet = MainFunction.GetWorksheetByName(masterPackage, MasterExcelData_Drawing.SheetName);
+            var rfiWorksheet = MainFunction.GetWorksheetByName(rfiPackage, "RFI_Drawing Details");
+            var masterWorksheet = MainFunction.GetWorksheetByName(masterPackage, MasterExcelData_Drawing.SheetName);
+
+            // 🧹 Clear dữ liệu cũ trước khi điền mới
+            masterWorksheet.Cells[MasterExcelData_Drawing.Start_Row, MASTER_REF_NO_LIST_COL, 50000, MASTER_OPEN_ITEMS_COL].Clear();
 
             // ✅ Tập hợp để lưu các DocRef đã xử lý (tránh trùng lặp)
             var processedDocRefs = new HashSet<string>();
@@ -44,7 +45,7 @@ public class RFIMasterProcessor
             // 🔄 Duyệt qua từng dòng trong RFI file
             int rfiRowCount = rfiWorksheet.Dimension.End.Row;
 
-            for (int rfiRow = 2; rfiRow <= rfiRowCount; rfiRow++) // Bỏ qua header
+            for (int rfiRow = 6; rfiRow <= rfiRowCount; rfiRow++) // Bỏ qua header
             {
                 var docRef = rfiWorksheet.Cells[rfiRow, RFI_DOC_REF_COL].Text?.Trim();
 
@@ -77,7 +78,7 @@ public class RFIMasterProcessor
     {
         int masterRowCount = masterWorksheet.Dimension.End.Row;
 
-        for (int row = 2; row <= masterRowCount; row++)
+        for (int row = MasterExcelData_Drawing.Start_Row; row <= masterRowCount; row++)
         {
             var allianceNo = masterWorksheet.Cells[row, MASTER_ALLIANCE_NO_COL].Text?.Trim();
             if (string.Equals(allianceNo, docRef, StringComparison.OrdinalIgnoreCase))
@@ -103,7 +104,7 @@ public class RFIMasterProcessor
 
         // 🔢 Thu thập dữ liệu từ các dòng matching
         var refNumbers = new List<string>();
-        var breAnswerCount = 0;
+        // ❌ REMOVED: var breAnswerCount = 0;
         var openCount = 0;
         var closedCount = 0;
         var openItemTexts = new List<string>();
@@ -115,10 +116,7 @@ public class RFIMasterProcessor
             if (!string.IsNullOrEmpty(refNo))
                 refNumbers.Add(refNo);
 
-            // ➡️ BRE Answer Count (Cột K)
-            var breAnswer = rfiWorksheet.Cells[rfiRow, RFI_BRE_ANSWER_COL].Text?.Trim();
-            if (!string.IsNullOrEmpty(breAnswer))
-                breAnswerCount++;
+            // ❌ REMOVED: BRE Answer Count logic
 
             // ➡️ Status Count (Cột N)
             var status = rfiWorksheet.Cells[rfiRow, RFI_STATUS_COL].Text?.Trim();
@@ -143,7 +141,7 @@ public class RFIMasterProcessor
         }
 
         // ✏️ Điền dữ liệu vào Master file
-        FillMasterFileData(masterWorksheet, masterRow, refNumbers, breAnswerCount,
+        FillMasterFileData(masterWorksheet, masterRow, refNumbers,
                           openCount, closedCount, openItemTexts);
     }
 
@@ -188,7 +186,7 @@ public class RFIMasterProcessor
     /// ✏️ Điền dữ liệu vào Master file
     /// </summary>
     private void FillMasterFileData(ExcelWorksheet masterWorksheet, int masterRow,
-                                   List<string> refNumbers, int breAnswerCount,
+                                   List<string> refNumbers,
                                    int openCount, int closedCount, List<string> openItemTexts)
     {
         // 📝 Cột BQ - Danh sách Ref No (phân cách bằng ;)
@@ -198,8 +196,7 @@ public class RFIMasterProcessor
                 string.Join(";", refNumbers.Distinct());
         }
 
-        // 📊 Cột BR - Count BRE Answer
-        masterWorksheet.Cells[masterRow, MASTER_BRE_COUNT_COL].Value = breAnswerCount;
+        // ❌ REMOVED: Cột BR - Count BRE Answer
 
         // 📊 Cột BS - Count Open
         masterWorksheet.Cells[masterRow, MASTER_OPEN_COUNT_COL].Value = openCount;
@@ -219,25 +216,3 @@ public class RFIMasterProcessor
         }
     }
 }
-
-// 🚀 Cách sử dụng
-//public class Program
-//{
-//    public static void Main()
-//    {
-//        var processor = new RFIMasterProcessor();
-
-//        string rfiFilePath = @"C:\path\to\your\RFI_file.xlsx";
-//        string masterFilePath = @"C:\path\to\your\Master_file.xlsx";
-
-//        try
-//        {
-//            processor.ProcessRFIAndMasterFiles(rfiFilePath, masterFilePath);
-//            Console.WriteLine("✅ Xử lý hoàn thành!");
-//        }
-//        catch (Exception ex)
-//        {
-//            Console.WriteLine($"❌ Lỗi: {ex.Message}");
-//        }
-//    }
-//}

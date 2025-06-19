@@ -469,41 +469,45 @@ namespace ExcelDataManager
     {
         // * Unique code vị trí các cột điền value
         private const string UniqueCode_TimesCount_Col = "drgrfi1st#times";
-        private const string UniqueCode_No_Col = "drgrfi1st#no";
-        private const string UniqueCode_Date_Col = "drgrfi1st#date";
-        private const string UniqueCode_DateFeedback_Col = "drgrfi1st#datefeedback";
+        private const string UniqueCode_NoOfRaise_Col = "drgrfi1st#noofraise";
+        private const string UniqueCode_NoOfFeedback_Col = "drgrfi1st#nooffeedback";
+        private const string UniqueCode_NoOpen_Col = "drgrfi1st#noopen";
+        private const string UniqueCode_NoClose_Col = "drgrfi1st#noclose";
         private const string UniqueCode_Status_Col = "drgrfi1st#status";
-        private const string UniqueCode_Note_Col = "drgrfi1st#note";
+        private const string UniqueCode_OpenItems_Col = "drgrfi1st#openitems";
 
         // * Thông tin các cột Master file
         public static string sheetName = MasterExcelData_Drawing.SheetName;
 
         public static int TimesCount_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_TimesCount_Col);
-        public static int No_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_No_Col);
-        public static int Date_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Date_Col);
-        public static int DateFeedback_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_DateFeedback_Col);
+        public static int NoOfRaise_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOfRaise_Col);
+        public static int NoOfFeedback_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOfFeedback_Col);
+        public static int NoOpen_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOpen_Col);
+        public static int NoClose_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoClose_Col);
         public static int Status_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Status_Col);
-        public static int Note_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Note_Col);
+        public static int OpenItems_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_OpenItems_Col);
     }
     public static class MasterExcelData_Drawing_FinalRFI
     {
         // * Unique code vị trí các cột điền value
         private const string UniqueCode_TimesCount_Col = "drgrfifinal#times";
-        private const string UniqueCode_No_Col = "drgrfifinal#no";
-        private const string UniqueCode_Date_Col = "drgrfifinal#date";
-        private const string UniqueCode_DateFeedback_Col = "drgrfifinal#datefeedback";
+        private const string UniqueCode_NoOfRaise_Col = "drgrfifinal#noofraise";
+        private const string UniqueCode_NoOfFeedback_Col = "drgrfifinal#nooffeedback";
+        private const string UniqueCode_NoOpen_Col = "drgrfifinal#noopen";
+        private const string UniqueCode_NoClose_Col = "drgrfifinal#noclose";
         private const string UniqueCode_Status_Col = "drgrfifinal#status";
-        private const string UniqueCode_Note_Col = "drgrfifinal#note";
+        private const string UniqueCode_OpenItems_Col = "drgrfifinal#openitems";
 
         // * Thông tin các cột Master file
         public static string sheetName = MasterExcelData_Drawing.SheetName;
 
         public static int TimesCount_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_TimesCount_Col);
-        public static int No_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_No_Col);
-        public static int Date_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Date_Col);
-        public static int DateFeedback_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_DateFeedback_Col);
+        public static int NoOfRaise_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOfRaise_Col);
+        public static int NoOfFeedback_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOfFeedback_Col);
+        public static int NoOpen_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoOpen_Col);
+        public static int NoClose_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_NoClose_Col);
         public static int Status_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Status_Col);
-        public static int Note_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_Note_Col);
+        public static int OpenItems_Col = GetColumnIndexByUniqueCode(TrackingInputData.txtFilePath_Master, sheetName, UniqueCode_OpenItems_Col);
     }
 
     // * FEEDBACK

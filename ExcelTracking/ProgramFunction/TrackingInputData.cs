@@ -1115,8 +1115,6 @@ namespace ExcelTracking
             string caption = "Transfer Drawing_RFI_1st to Master";
             string sheetName_InputRecorMaster = InputRecordMasterExcelData_Drawing_RFI_1st.sheetName;
 
-            //if (!IsValidExcelFiles_ForTransfer_MainTab(activeForm, caption, sheetName_InputRecorMaster)) { return; }
-
             //--------------------------------------------
             // *** Backup Master và InputRecordMaster trước khi transfer data
             // * Backup Master File
@@ -1150,6 +1148,7 @@ namespace ExcelTracking
         public static void Transfer_Drawing_RFI_1st_ToMaster_OLD()
         {
             #region
+            /*
             string caption = "Transfer Drawing_RFI_1st to Master";
             string sheetName_InputRecorMaster = InputRecordMasterExcelData_Drawing_RFI_1st.sheetName;
 
@@ -1294,6 +1293,7 @@ namespace ExcelTracking
 
                 MessageBox.Show(activeForm, "Data transfer is done!", caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            */
             #endregion
         }
         public static void Transfer_Drawing_Feedback_1st_ToMaster()
